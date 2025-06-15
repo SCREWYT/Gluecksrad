@@ -1,19 +1,143 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/main"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    android:padding="24dp">
 
+    <!-- Container für Rad + Zahlen (nur das Rad rotiert!) -->
+    <FrameLayout
+        android:id="@+id/wheelContainer"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:id="@+id/imageViewWheel"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/gluecksrad"
+            android:contentDescription="Glücksrad" />
+
+        <!-- 8 Felder als TextViews -->
+        <TextView
+            android:id="@+id/field1"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="+10"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/field2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="+20"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/field3"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="+30"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/field4"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="+40"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/field5"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="-10"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/field6"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="-20"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/field7"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="-30"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/field8"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:text="-40"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+    </FrameLayout>
+
+    <!-- Der Pfeil ist außerhalb vom wheelContainer, aber mittig über dem Rad und unten am Rad -->
+    <ImageView
+        android:id="@+id/imageViewArrow"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_below="@id/wheelContainer"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-20dp"
+        android:src="@drawable/ic_arrow_down"
+        android:contentDescription="Pfeil zeigt Treffer" />
+
+    <!-- Score-Anzeige -->
     <TextView
+        android:id="@+id/textViewScore"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="Score: 0"
+        android:textSize="24sp"
+        android:layout_below="@id/imageViewArrow"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="16dp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    <!-- Buttons -->
+    <Button
+        android:id="@+id/buttonSpin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Drehen"
+        android:layout_below="@id/textViewScore"
+        android:layout_marginTop="24dp" />
+
+    <Button
+        android:id="@+id/buttonUpgrades"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Upgrades"
+        android:layout_below="@id/buttonSpin"
+        android:layout_marginTop="16dp" />
+
+    <Button
+        android:id="@+id/buttonSettings"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Settings"
+        android:layout_below="@id/buttonUpgrades"
+        android:layout_marginTop="16dp" />
+
+</RelativeLayout>
