@@ -29,16 +29,6 @@
 
     <!-- 0 = Platzhalter erneut wie davor bei "activity_main" und dem Rad -->
 
-    <!-- Upgrade: Passives Einkommen -->
-    <Button
-        android:id="@+id/buttonUpgradePassive"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Passiv: +1 alle 10 Sek\nKosten: 50"
-        android:layout_marginBottom="16dp" />
-
-    <!-- "Passiv" = \n Zeilenumbruch -->
-
     <!-- Upgrade: Multiplikator -->
     <Button
         android:id="@+id/buttonUpgradeMultiplier"
@@ -46,6 +36,14 @@
         android:layout_height="wrap_content"
         android:text="Multiplikator x1.0 → x1.1\nKosten: 100"
         android:layout_marginBottom="32dp" />
+
+    <!-- Upgrade: Feldwerte -->
+    <Button
+        android:id="@+id/buttonUpgradeFieldValue"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Feldwerte: ±5 stärker\nKosten: 3"
+        android:layout_marginBottom="16dp" />
 
     <!-- Zurück-Button zum Mainscreen des Glücksrads -->
     <Button

@@ -15,17 +15,17 @@ import com.example.gluecksrad.database.ScoreDao;
 
 public class UpgradeActivity extends AppCompatActivity {
 
-    private Button buttonUpgradePassive, buttonUpgradeMultiplier, buttonBackToMain;
+    private Button buttonUpgradeMultiplier, buttonUpgradeFieldValue, buttonBackToMain;
     private TextView textViewUpgradeStatus;
 
     private String username;
     private ScoreDao scoreDao;
 
-    private static final String UPGRADE_PASSIVE = "passive_income";
     private static final String UPGRADE_MULTIPLIER = "multiplier";
+    private static final String UPGRADE_FIELDVALUE = "field_value";
 
-    private static final int BASE_COST_PASSIVE = 50;
-    private static final int BASE_COST_MULTIPLIER = 100;
+    private static final int BASE_COST_MULTIPLIER = 5;
+    private static final int BASE_COST_FIELDVALUE = 3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,37 +39,37 @@ public class UpgradeActivity extends AppCompatActivity {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
         scoreDao = new ScoreDao(db);
 
-        buttonUpgradePassive = findViewById(R.id.buttonUpgradePassive);
         buttonUpgradeMultiplier = findViewById(R.id.buttonUpgradeMultiplier);
+        buttonUpgradeFieldValue = findViewById(R.id.buttonUpgradeFieldValue);
         buttonBackToMain = findViewById(R.id.buttonBackToMain);
         textViewUpgradeStatus = findViewById(R.id.textViewUpgradeStatus);
 
         updateUpgradeButtons();
 
-        buttonUpgradePassive.setOnClickListener(v -> {
-            int currentLevel = scoreDao.getUpgradeLevel(username, UPGRADE_PASSIVE);
-            int cost = (int) Math.ceil(BASE_COST_PASSIVE * Math.pow(1.2, currentLevel));
+        buttonUpgradeMultiplier.setOnClickListener(v -> {
+            int level = scoreDao.getUpgradeLevel(username, UPGRADE_MULTIPLIER);
+            int cost = (int) Math.ceil(BASE_COST_MULTIPLIER * Math.pow(1.1, level));
             int currentScore = scoreDao.getScore(username);
 
             if (currentScore >= cost) {
                 scoreDao.updateScore(username, currentScore - cost);
-                scoreDao.setUpgradeLevel(username, UPGRADE_PASSIVE, currentLevel + 1);
-                Toast.makeText(this, "Passiv-Upgrade gekauft!", Toast.LENGTH_SHORT).show();
+                scoreDao.setUpgradeLevel(username, UPGRADE_MULTIPLIER, level + 1);
+                Toast.makeText(this, "Multiplikator-Upgrade gekauft!", Toast.LENGTH_SHORT).show();
                 updateUpgradeButtons();
             } else {
                 Toast.makeText(this, "Nicht genug Punkte!", Toast.LENGTH_SHORT).show();
             }
         });
 
-        buttonUpgradeMultiplier.setOnClickListener(v -> {
-            int currentLevel = scoreDao.getUpgradeLevel(username, UPGRADE_MULTIPLIER);
-            int cost = (int) Math.ceil(BASE_COST_MULTIPLIER * Math.pow(1.2, currentLevel));
+        buttonUpgradeFieldValue.setOnClickListener(v -> {
+            int level = scoreDao.getUpgradeLevel(username, UPGRADE_FIELDVALUE);
+            int cost = (int) Math.ceil(BASE_COST_FIELDVALUE * Math.pow(1.1, level));
             int currentScore = scoreDao.getScore(username);
 
             if (currentScore >= cost) {
                 scoreDao.updateScore(username, currentScore - cost);
-                scoreDao.setUpgradeLevel(username, UPGRADE_MULTIPLIER, currentLevel + 1);
-                Toast.makeText(this, "Multiplikator-Upgrade gekauft!", Toast.LENGTH_SHORT).show();
+                scoreDao.setUpgradeLevel(username, UPGRADE_FIELDVALUE, level + 1);
+                Toast.makeText(this, "Feldwerte-Upgrade gekauft!", Toast.LENGTH_SHORT).show();
                 updateUpgradeButtons();
             } else {
                 Toast.makeText(this, "Nicht genug Punkte!", Toast.LENGTH_SHORT).show();
@@ -85,18 +85,20 @@ public class UpgradeActivity extends AppCompatActivity {
     }
 
     private void updateUpgradeButtons() {
-        int passiveLevel = scoreDao.getUpgradeLevel(username, UPGRADE_PASSIVE);
-        int multiplierLevel = scoreDao.getUpgradeLevel(username, UPGRADE_MULTIPLIER);
+        int levelMultiplier = scoreDao.getUpgradeLevel(username, UPGRADE_MULTIPLIER);
+        int levelField = scoreDao.getUpgradeLevel(username, UPGRADE_FIELDVALUE);
         int score = scoreDao.getScore(username);
 
-        int costPassive = (int) Math.ceil(BASE_COST_PASSIVE * Math.pow(1.2, passiveLevel));
-        int costMultiplier = (int) Math.ceil(BASE_COST_MULTIPLIER * Math.pow(1.2, multiplierLevel));
+        int costMultiplier = (int) Math.ceil(BASE_COST_MULTIPLIER * Math.pow(1.1, levelMultiplier));
+        int costField = (int) Math.ceil(BASE_COST_FIELDVALUE * Math.pow(1.1, levelField));
 
-        buttonUpgradePassive.setText("Passiv: +" + (passiveLevel + 1) + " alle 10 Sek\nKosten: " + costPassive);
-        buttonUpgradeMultiplier.setText("Multiplikator: x" +
-                String.format("%.1f", 1 + multiplierLevel * 0.1) +
-                " → x" + String.format("%.1f", 1 + (multiplierLevel + 1) * 0.1) +
+        buttonUpgradeMultiplier.setText("Multiplikator x" +
+                String.format("%.1f", 1 + 0.1 * levelMultiplier) +
+                " → x" + String.format("%.1f", 1 + 0.1 * (levelMultiplier + 1)) +
                 "\nKosten: " + costMultiplier);
+
+        buttonUpgradeFieldValue.setText("Feldwerte ±" + (levelField * 5) +
+                " → ±" + ((levelField + 1) * 5) + "\nKosten: " + costField);
 
         textViewUpgradeStatus.setText("Dein Punktestand: " + score);
     }

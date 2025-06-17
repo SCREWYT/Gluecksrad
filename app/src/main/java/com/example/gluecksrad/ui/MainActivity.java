@@ -34,12 +34,11 @@ public class MainActivity extends AppCompatActivity {
     private String username;
     private ScoreDao scoreDao;
 
-    private Handler handler = new Handler();
-    private Runnable passiveRunnable;
-    private final String PASSIVE_KEY = "passive_income";
     private final String MULTIPLIER_KEY = "multiplier";
+    private final String FIELDVALUE_KEY = "field_value";
 
-    private final int[] spinValues = {+10, -10, +20, -20, +30, -30, +40, -40};
+    private final int[] baseSpinValues = {+10, -10, +20, -20, +30, -30, +40, -40};
+    private final int[] spinValues = new int[8];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,8 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 findViewById(R.id.field8)
         };
 
-        multiplier = 1.0f + 0.1f * scoreDao.getUpgradeLevel(username, MULTIPLIER_KEY);
-
+        updateFieldValues();
         updateScoreText();
         wheelContainer.post(this::positionNumbersOnCircle);
 
@@ -89,40 +87,26 @@ public class MainActivity extends AppCompatActivity {
             intent.putExtra("username", username);
             startActivity(intent);
         });
-
-        startPassiveScoreTimer();
     }
 
-    private void startPassiveScoreTimer() {
-        passiveRunnable = new Runnable() {
-            @Override
-            public void run() {
-                int upgradeLevel = scoreDao.getUpgradeLevel(username, PASSIVE_KEY);
-                if (upgradeLevel > 0) {
-                    score += upgradeLevel;
-                    scoreDao.updateScore(username, score);
-                    updateScoreText();
-                }
-                handler.postDelayed(this, 10000);
+    private void updateFieldValues() {
+        int fieldLevel = scoreDao.getUpgradeLevel(username, FIELDVALUE_KEY);
+        for (int i = 0; i < baseSpinValues.length; i++) {
+            if (baseSpinValues[i] > 0) {
+                spinValues[i] = baseSpinValues[i] + (fieldLevel * 5);
+            } else {
+                spinValues[i] = baseSpinValues[i] - (fieldLevel * 5);
             }
-        };
-        handler.postDelayed(passiveRunnable, 10000);
-    }
-
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-        handler.removeCallbacks(passiveRunnable);
+        }
     }
 
     private void positionNumbersOnCircle() {
         int radius = wheelContainer.getWidth() / 2 - 150;
         int centerX = wheelContainer.getWidth() / 2;
         int centerY = wheelContainer.getHeight() / 2;
-        int count = fields.length;
 
-        for (int i = 0; i < count; i++) {
-            double angle = 2 * Math.PI * i / count - Math.PI / 2;
+        for (int i = 0; i < fields.length; i++) {
+            double angle = 2 * Math.PI * i / fields.length - Math.PI / 2;
             float x = (float) (centerX + radius * Math.cos(angle) - fields[i].getWidth() / 2f);
             float y = (float) (centerY + radius * Math.sin(angle) - fields[i].getHeight() / 2f);
             fields[i].setX(x);
@@ -144,13 +128,11 @@ public class MainActivity extends AppCompatActivity {
         animator.setInterpolator(new android.view.animation.DecelerateInterpolator());
 
         animator.addListener(new Animator.AnimatorListener() {
-            @Override
-            public void onAnimationStart(Animator animation) {
+            @Override public void onAnimationStart(Animator animation) {
                 buttonSpin.setEnabled(false);
             }
 
-            @Override
-            public void onAnimationEnd(Animator animation) {
+            @Override public void onAnimationEnd(Animator animation) {
                 buttonSpin.setEnabled(true);
                 currentRotation = targetRotation % 360f;
                 if (currentRotation < 0) currentRotation += 360f;
@@ -158,9 +140,10 @@ public class MainActivity extends AppCompatActivity {
                 int landedSector = getSectorUnderPointer(currentRotation, sectorCount);
                 int basePoints = spinValues[landedSector];
 
-                // Multiplikator wirkt nur auf positive Punkte
+                float multiplierValue = 1.0f + 0.1f * scoreDao.getUpgradeLevel(username, MULTIPLIER_KEY);
+
                 int gained = (basePoints > 0)
-                        ? Math.round(basePoints * multiplier)
+                        ? Math.round(basePoints * multiplierValue)
                         : basePoints;
 
                 score += gained;
@@ -181,7 +164,6 @@ public class MainActivity extends AppCompatActivity {
 
     private int getSectorUnderPointer(float wheelRotation, int sectorCount) {
         final float pointerAngle = 180f;
-
         float normalizedRotation = wheelRotation % 360f;
         if (normalizedRotation < 0) normalizedRotation += 360f;
 
