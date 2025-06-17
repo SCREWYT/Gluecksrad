@@ -15,6 +15,6 @@ public class User {
     public User(int id, String username, String password) {
         this.id = id;                // Das "this" sagt: Speichere den übergebenen Wert in das Feld dieser Klasse
         this.username = username;   // → username im Objekt wird gesetzt
-        this.password = password;  // → password im Objekt wird gesetzt
+        this.password = password;  // → passwort im Objekt wird gesetzt
     }
 }
