@@ -1,6 +1,9 @@
 package com.example.gluecksrad.ui;
 
+import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
@@ -9,61 +12,68 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.gluecksrad.R;
-import com.example.gluecksrad.database.UserDAO;
-import com.example.gluecksrad.model.User;
+import com.example.gluecksrad.database.DBHelper;
 
 public class RegisterActivity extends AppCompatActivity {
 
-    private EditText editTextUsername, editTextPassword, editTextPasswordConfirm;
-    private Button buttonRegister, buttonBack;
-    private UserDAO userDAO;
+    private EditText editTextUsername, editTextPassword;
+    private Button buttonRegister, buttonBackToLogin;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        userDAO = new UserDAO(this);
-
         editTextUsername = findViewById(R.id.editTextUsername);
         editTextPassword = findViewById(R.id.editTextPassword);
-        editTextPasswordConfirm = findViewById(R.id.editTextPasswordConfirm);
         buttonRegister = findViewById(R.id.buttonRegister);
-        buttonBack = findViewById(R.id.buttonBack);
+        buttonBackToLogin = findViewById(R.id.buttonBackToLogin);
 
+        DBHelper dbHelper = new DBHelper(this);
+        SQLiteDatabase db = dbHelper.getWritableDatabase();
+
+        // Registrierung
         buttonRegister.setOnClickListener(v -> {
             String username = editTextUsername.getText().toString().trim();
             String password = editTextPassword.getText().toString().trim();
-            String passwordConfirm = editTextPasswordConfirm.getText().toString().trim();
 
-            if (username.isEmpty() || password.isEmpty() || passwordConfirm.isEmpty()) {
-                Toast.makeText(RegisterActivity.this, "Bitte alle Felder ausfüllen", Toast.LENGTH_SHORT).show();
+            if (username.isEmpty() || password.isEmpty()) {
+                Toast.makeText(this, "Bitte alle Felder ausfüllen", Toast.LENGTH_SHORT).show();
                 return;
             }
 
-            if (!password.equals(passwordConfirm)) {
-                Toast.makeText(RegisterActivity.this, "Passwörter stimmen nicht überein", Toast.LENGTH_SHORT).show();
+            // Prüfen, ob Benutzername schon existiert
+            Cursor cursor = db.query("users", new String[]{"username"},
+                    "username = ?", new String[]{username}, null, null, null);
+
+            if (cursor.moveToFirst()) {
+                Toast.makeText(this, "Benutzername existiert bereits", Toast.LENGTH_SHORT).show();
+                cursor.close();
                 return;
             }
+            cursor.close();
 
-            // Prüfen, ob Username schon existiert
-            if (userDAO.getUserByUsername(username) != null) {
-                Toast.makeText(RegisterActivity.this, "Benutzername bereits vergeben", Toast.LENGTH_SHORT).show();
-                return;
-            }
+            // Einfügen
+            ContentValues values = new ContentValues();
+            values.put("username", username);
+            values.put("password", password);
 
-            // User speichern
-            User newUser = new User(username, password);
-            boolean inserted = userDAO.insertUser(newUser);
-            if (inserted) {
-                Toast.makeText(RegisterActivity.this, "Registrierung erfolgreich", Toast.LENGTH_SHORT).show();
-                // Zurück zum Login
-                finish();
+            long result = db.insert("users", null, values);
+            if (result == -1) {
+                Toast.makeText(this, "Fehler bei der Registrierung", Toast.LENGTH_SHORT).show();
             } else {
-                Toast.makeText(RegisterActivity.this, "Registrierung fehlgeschlagen", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, "Registrierung erfolgreich!", Toast.LENGTH_SHORT).show();
+                Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+                startActivity(intent);
+                finish();
             }
         });
 
-        buttonBack.setOnClickListener(v -> finish());
+        // Zurück zum Login
+        buttonBackToLogin.setOnClickListener(v -> {
+            Intent intent = new Intent(RegisterActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
+        });
     }
 }

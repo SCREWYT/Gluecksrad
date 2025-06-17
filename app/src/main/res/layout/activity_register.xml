@@ -1,50 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="24dp">
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="24dp"
+    android:background="#ffffff">
+    <!-- padding = Abstand (innen) zum Rand
+    die ganzen f's = Farbe "Weiß" -->
 
-    <LinearLayout
+    <!-- Titel "Registrieren" über den Eingabefeldern -->
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Registrieren"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp" />
+
+    <!-- Eingabefeld für den Benutzernamen -->
+    <EditText
+        android:id="@+id/editTextUsername"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Benutzername"
+        android:inputType="textPersonName"
+        android:layout_marginBottom="16dp" />
+
+    <!-- Eingabefeld für das Passwort -->
+    <EditText
+        android:id="@+id/editTextPassword"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Passwort"
+        android:inputType="textPassword"
+        android:layout_marginBottom="24dp" />
+
+    <!-- 48dp sind außerhalb des Paddings und damit größer -->
+    <!-- "textPassword" = Sorgt dafür, dass es geheim ist -->
+
+    <!-- Registrieren-Button -->
+    <Button
+        android:id="@+id/buttonRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:gravity="center_horizontal">
+        android:text="Registrieren" />
 
-        <EditText
-            android:id="@+id/editTextUsername"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:hint="Benutzername"
-            android:inputType="textPersonName"
-            android:layout_marginBottom="16dp"/>
+    <!-- Zurück zum Login -->
+    <Button
+        android:id="@+id/buttonBackToLogin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Zurück zum Login"
+        android:layout_marginTop="16dp" />
+    <!-- 16dp = Abstand zum obigen "Registrieren" Buttons -->
 
-        <EditText
-            android:id="@+id/editTextPassword"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:hint="Passwort"
-            android:inputType="textPassword"
-            android:layout_marginBottom="16dp"/>
-
-        <EditText
-            android:id="@+id/editTextPasswordConfirm"
-            android:layout_width="match_parent"
-            android:layout_height="48dp"
-            android:hint="Passwort bestätigen"
-            android:inputType="textPassword"
-            android:layout_marginBottom="24dp"/>
-
-        <Button
-            android:id="@+id/buttonRegister"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Registrieren" />
-
-        <Button
-            android:id="@+id/buttonBack"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Zurück"
-            android:layout_marginTop="16dp"/>
-    </LinearLayout>
-</ScrollView>
+</LinearLayout>

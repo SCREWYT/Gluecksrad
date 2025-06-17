@@ -1,37 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
+
+<!-- Das Linear Layout sorgt dafür, dass alle Elemente untereinander dargestellt werden -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:gravity="center"
     android:orientation="vertical"
+    android:gravity="center"
     android:padding="24dp">
+    <!-- match parent = So breit/hoch wie der Bildschirm des Endgeräts
+         vertical= Elemente untereinander
+         center = alles horizontal zentrieren
+         24dp = Abstand von allen Seiten
+         -->
 
+    <!-- Titel, der einfach nur "Login" anzeigt -->
+    <TextView
+        android:id="@+id/textViewLoginTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="24dp" />
+
+    <!-- sp = scale independent pixels
+         wrap content = Element nur so groß wie es muss
+         -->
+
+    <!-- Eingabefeld für den Benutzernamen -->
     <EditText
         android:id="@+id/editTextUsername"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:hint="Benutzername"
         android:inputType="textPersonName"
-        android:layout_marginBottom="16dp"/>
+        android:layout_marginBottom="16dp" />
 
+    <!-- Eingabefeld für das Passwort -->
     <EditText
         android:id="@+id/editTextPassword"
         android:layout_width="match_parent"
         android:layout_height="48dp"
         android:hint="Passwort"
-        android:inputType="textPassword"
-        android:layout_marginBottom="24dp"/>
+        android:inputType="textPassword" />
 
+    <!-- "textPassword" sorgt dafür, dass das Passwort nicht sichtbar ist -->
+
+    <!-- Button, um den Login zu bestätigen -->
     <Button
         android:id="@+id/buttonLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Login" />
+        android:text="Login"
+        android:layout_marginTop="24dp" />
 
+    <!-- Button, der zur Seite für die "Registrierung" weiterleitet -->
     <Button
-        android:id="@+id/buttonRegister"
+        android:id="@+id/buttonToRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Registrieren"
-        android:layout_marginTop="16dp"/>
+        android:layout_marginTop="16dp" />
+
 </LinearLayout>

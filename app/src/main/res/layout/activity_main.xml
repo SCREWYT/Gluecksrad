@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!-- Relative = Frei auswählbar wo angeordnet im Bezug auf andere Elemente -->
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="24dp">
 
-    <!-- Container für Rad + Zahlen (nur das Rad rotiert!) -->
+<!-- Container für Rad + Zahlen, die im Kreis im Rad angeordnet sind -->
     <FrameLayout
         android:id="@+id/wheelContainer"
         android:layout_width="300dp"
         android:layout_height="300dp"
         android:layout_centerHorizontal="true">
 
+<!-- Das Bild vom Glücksrad -->
         <ImageView
             android:id="@+id/imageViewWheel"
             android:layout_width="match_parent"
@@ -18,21 +20,23 @@
             android:src="@drawable/gluecksrad"
             android:contentDescription="Glücksrad" />
 
-        <!-- 8 Felder als TextViews -->
+        <!-- Es folgen die 8 Textfelder mit den Zahlenwerten des Feldes im Kreis. Java setzt die Positionen-->
+        <!-- Anfangswert ist 0, wird beim Start durch echte Werte ersetzt -->
         <TextView
             android:id="@+id/field1"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:text="+10"
+            android:text="0"
             android:textColor="#000000"
             android:textStyle="bold"
             android:gravity="center"/>
-
+        <!-- 0 = Plazhalter, die Nullen sind der Code für die Farbe "Schwarz" -->
+        <!-- Die restlichen 7 Felder werden genauso aufgebaut -->
         <TextView
             android:id="@+id/field2"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:text="+20"
+            android:text="0"
             android:textColor="#000000"
             android:textStyle="bold"
             android:gravity="center"/>
@@ -41,7 +45,7 @@
             android:id="@+id/field3"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:text="+30"
+            android:text="0"
             android:textColor="#000000"
             android:textStyle="bold"
             android:gravity="center"/>
@@ -50,7 +54,7 @@
             android:id="@+id/field4"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:text="+40"
+            android:text="0"
             android:textColor="#000000"
             android:textStyle="bold"
             android:gravity="center"/>
@@ -59,7 +63,7 @@
             android:id="@+id/field5"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:text="-10"
+            android:text="0"
             android:textColor="#000000"
             android:textStyle="bold"
             android:gravity="center"/>
@@ -68,7 +72,7 @@
             android:id="@+id/field6"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:text="-20"
+            android:text="0"
             android:textColor="#000000"
             android:textStyle="bold"
             android:gravity="center"/>
@@ -77,7 +81,7 @@
             android:id="@+id/field7"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:text="-30"
+            android:text="0"
             android:textColor="#000000"
             android:textStyle="bold"
             android:gravity="center"/>
@@ -86,14 +90,14 @@
             android:id="@+id/field8"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:text="-40"
+            android:text="0"
             android:textColor="#000000"
             android:textStyle="bold"
             android:gravity="center"/>
-
     </FrameLayout>
 
-    <!-- Der Pfeil ist außerhalb vom wheelContainer, aber mittig über dem Rad und unten am Rad -->
+    <!-- Kleiner Pfeil unten am Rad, der anzeigt, welches Feld getroffen wird. Hauptsächlich für den
+     Spieler als Orientierung -->
     <ImageView
         android:id="@+id/imageViewArrow"
         android:layout_width="40dp"
@@ -103,6 +107,11 @@
         android:layout_marginTop="-20dp"
         android:src="@drawable/ic_arrow_down"
         android:contentDescription="Pfeil zeigt Treffer" />
+
+    <!-- layout_below = Ist quasi direkt unterm Rad angeordnet.
+     -20dp = Überlappt leicht den Rand zum Rad
+      "Pfeil zeigt Treffer" = Als Barrierefreiheit, falls eine Person mit Sehbehinderung auf den Pfeil klickt,
+      wird dieser Text vom Endgerät gesprochen-->
 
     <!-- Score-Anzeige -->
     <TextView
@@ -115,7 +124,10 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="16dp" />
 
-    <!-- Buttons -->
+    <!-- Score 0 = Startwert für jeden Nutzer
+     sp = Schriftgröße -->
+
+    <!-- Button zum Drehen des Rades -->
     <Button
         android:id="@+id/buttonSpin"
         android:layout_width="match_parent"
@@ -124,6 +136,7 @@
         android:layout_below="@id/textViewScore"
         android:layout_marginTop="24dp" />
 
+    <!-- Button zum Öffnen des Upgrade Screens -->
     <Button
         android:id="@+id/buttonUpgrades"
         android:layout_width="match_parent"
@@ -131,7 +144,7 @@
         android:text="Upgrades"
         android:layout_below="@id/buttonSpin"
         android:layout_marginTop="16dp" />
-
+    <!-- Button zum Öffnen der Settings -->
     <Button
         android:id="@+id/buttonSettings"
         android:layout_width="match_parent"

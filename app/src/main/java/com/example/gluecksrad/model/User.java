@@ -1,46 +1,20 @@
 package com.example.gluecksrad.model;
 
+// Eine einfache Datenklasse (Model), die die Daten eines Benutzers speichert
 public class User {
 
-    private int id;
-    private String username;
-    private String password;
+    // Öffentliche Variablen: Die Eigenschaften eines Users
 
-    // Konstruktor ohne ID (für Registrierung)
-    public User(String username, String password) {
-        this.username = username;
-        this.password = password;
-    }
+    public int id;                // Eindeutige ID des Benutzers (z. B. 1, 2, 3 …)
+    public String username;     // Benutzername (z. B. "max123")
+    public String password;   // Passwort als Text (Hier im Klartext, in richtiger App nicht gut)
 
-    // Konstruktor mit ID (für Datenbank-Lesen)
+    // Konstruktor: Wird aufgerufen, wenn man ein neues User-Objekt erstellen will
+    // Beispiel: new User(1, "max", "1234")
+
     public User(int id, String username, String password) {
-        this.id = id;
-        this.username = username;
-        this.password = password;
-    }
-
-    // Getter und Setter
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public String getUsername() {
-        return username;
-    }
-
-    public void setUsername(String username) {
-        this.username = username;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+        this.id = id;                // Das "this" sagt: Speichere den übergebenen Wert in das Feld dieser Klasse
+        this.username = username;   // → username im Objekt wird gesetzt
+        this.password = password;  // → password im Objekt wird gesetzt
     }
 }

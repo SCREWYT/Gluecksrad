@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+    Diese Datei erlaubt meiner App,
+    auch unverschlüsselte HTTP-Verbindungen zu nutzen.
+    Das ist wichtig, wenn ich mit meinem lokalen Testserver kommuniziere.
+-->
+
+<network-security-config>
+
+    <!-- Erlaubt HTTP ( Ohne "s" = unsicher!) für eine bestimmte Adresse -->
+    <domain-config cleartextTrafficPermitted="true">
+        <!-- 10.0.2.2 = Spezialadresse im Android-Emulator für meinen eigenen PC -->
+        <domain includeSubdomains="true">10.0.2.2</domain>
+
+    </domain-config>
+
+</network-security-config>
+
+<!-- Der Emulator läuft ja in einer virtuellen Umgebung, wie ein eigenständiger Computer im Computer.
+Würde man "localhost" oder 127.0.0.1 eingeben, würde der Emulator nur auf sich selbst verweisen, daher der Umweg
+mit "10.0.2.2" = "Echter PC"
+
+8080 wird oft als Standardport für Webserver genutzt. -->

@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- "Scrollview" ermöglicht es, nach unten zu scrollen, wenn Inhalte den Bildschirm sonst überragen -->
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp"
+        android:gravity="center_horizontal">
+
+        <!-- Titel "Einstellungen" -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Einstellungen"
+            android:textSize="28sp"
+            android:textStyle="bold"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Zeigt das Ergebnis vom Netzwerktest an -->
+        <TextView
+            android:id="@+id/textViewNetworkResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Noch keine Anfrage gesendet"
+            android:textSize="16sp"
+            android:layout_marginBottom="24dp" />
+
+        <!-- Bekommt eine Id, damit Java Code im späteren Verlauf darauf zugreifen darf
+        "Noch keine Anfrage gesendet" = Wenn keine Verbindung besteht -->
+
+        <!-- Netzwerk-Test-Button = Startet Request an den Server (Der RICHTIGE PC, nicht die VM)-->
+        <Button
+            android:id="@+id/buttonTestNetwork"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Netzwerkverbindung testen" />
+
+        <!-- Zurück-Button zum Mainscreen (Glücksrad-Screem)-->
+        <Button
+            android:id="@+id/buttonBackToMain"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Zurück zum Glücksrad"
+            android:layout_marginTop="24dp" />
+
+        <!-- Logout-Button, um zurück-->
+        <Button
+            android:id="@+id/buttonLogout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Logout"
+            android:layout_marginTop="24dp" />
+
+    </LinearLayout>
+</ScrollView>
