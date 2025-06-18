@@ -98,11 +98,15 @@ Gluecksrad/
 
 Das sind einige Screenshots meiner App.
 
-```markdown
-![Login Screen](screenshots/login_screen.png)
-![Glücksrad](screenshots/main_screen.png)
-![Upgrades](screenshots/upgrades_screen.png)
-```
+### 🔐 Login
+[![Login](screenshots/login_screen.png)](screenshots/login_screen.png)
+
+### 🌀 Glücksrad
+[![Main](screenshots/main_screen.png)](screenshots/main_screen.png)
+
+### 🛠️ Upgrades
+[![Upgrades](screenshots/upgrades_screen.png)](screenshots/upgrades_screen.png)
+
 
 ---
 
