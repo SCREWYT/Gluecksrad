@@ -19,6 +19,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     // Eingabe-Felder und Buttons
     private EditText editTextUsername, editTextPassword;
+    private EditText editTextConfirmPassword;  // NEU: Eingabefeld für Passwort-Wiederholung
     private Button buttonRegister, buttonBackToLogin;
 
     // Wird beim Start der Activity (dem Screen) ausgeführt
@@ -30,6 +31,7 @@ public class RegisterActivity extends AppCompatActivity {
         // Referenzen zu den Elementen im Layout holen (XML)
         editTextUsername = findViewById(R.id.editTextUsername);
         editTextPassword = findViewById(R.id.editTextPassword);
+        editTextConfirmPassword = findViewById(R.id.editTextConfirmPassword);  // Verbindung zum zweiten Feld
         buttonRegister = findViewById(R.id.buttonRegister);
         buttonBackToLogin = findViewById(R.id.buttonBackToLogin);
 
@@ -42,12 +44,21 @@ public class RegisterActivity extends AppCompatActivity {
             // Eingaben auslesen und zuschneiden (Leerzeichen entfernen)
             String username = editTextUsername.getText().toString().trim();
             String password = editTextPassword.getText().toString().trim();
+            String confirmPassword = editTextConfirmPassword.getText().toString().trim(); // NEU
+
 
             // Falls ein Feld leer ist → Hinweis anzeigen
-            if (username.isEmpty() || password.isEmpty()) {
+            if (username.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) {
                 Toast.makeText(this, "Bitte alle Felder ausfüllen", Toast.LENGTH_SHORT).show();
                 return;
             }
+
+            // Neu: Prüfen, ob die beiden Passwörter gleich sind
+            if (!password.equals(confirmPassword)) {
+                Toast.makeText(this, "Passwörter stimmen nicht überein", Toast.LENGTH_SHORT).show();
+                return;
+            }
+
 
             // Prüfen, ob es den Benutzernamen schon gibt
             Cursor cursor = db.query(

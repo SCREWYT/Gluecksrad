@@ -34,7 +34,17 @@
         android:layout_height="48dp"
         android:hint="Passwort"
         android:inputType="textPassword"
-        android:layout_marginBottom="24dp" />
+        android:layout_marginBottom="16dp" />
+
+    <!-- Eingabefeld für das erneute Passwort -->
+    <EditText
+        android:id="@+id/editTextConfirmPassword"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:hint="Passwort wiederholen"
+        android:inputType="textPassword"
+        android:layout_marginBottom="24dp"/>
+
 
     <!-- 48dp sind außerhalb des Paddings und damit größer -->
     <!-- "textPassword" = Sorgt dafür, dass es geheim ist -->
