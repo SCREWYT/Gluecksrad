@@ -110,15 +110,13 @@ Das sind einige Screenshots meiner App.
 
 ---
 
----
-
 Das hier sind sowohl Ablaufdiagramm als auch ein Klassendiagramm
 
 ### 🔐 Ablaufdiagramm
-[![Ablaufdiagramm](screenshots/Final_Ablaufdiagramm_Glücksrad.png)](screenshots/Final_Ablaufdiagramm_Glücksrad.png)
+[![Ablaufdiagramm](Final_Ablaufdiagramm_Glücksrad.png)](Final_Ablaufdiagramm_Glücksrad.png)
 
 ### 🛠️ Klassendiagramm
-[![Klassendiagramm](screenshots/Klassendiagramm.drawio.png)](screenshots/Klassendiagramm.drawio.png)
+[![Klassendiagramm](Klassendiagramm.drawio.png)](Klassendiagramm.drawio.png)
 
 
 --- 
