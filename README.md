@@ -10,7 +10,7 @@ Ein Android-Spiel in Java, das ein Glücksrad simuliert. Spieler können durch D
 - 🔐 **Login- und Registrierungssystem**
 - 💾 **Datenbankanbindung über SQLite** (Benutzerdaten, Punktestand, Upgrades)
 - ⬆️ **Zwei Upgrades:**
-  - **Multiplikator:** Erhöht positive Gewinne
+  - **Multiplikator:** Erhöht positive Gewinne (beeinflusst nicht die negativen Felder)
   - **Feldwerte-Upgrade:** Macht alle Felder stärker (positive Felder positiver, negative negativer)
 - 🛠️ **Modularer Aufbau mit DAO-Klassen**
 - ⚙️ **Settings-Screen mit Netzwerkverbindungstest**
@@ -110,6 +110,19 @@ Das sind einige Screenshots meiner App.
 
 ---
 
+---
+
+Das hier sind sowohl Ablaufdiagramm als auch ein Klassendiagramm
+
+### 🔐 Ablaufdiagramm
+[![Ablaufdiagramm](screenshots/Final_Ablaufdiagramm_Glücksrad.png)](screenshots/Final_Ablaufdiagramm_Glücksrad.png)
+
+### 🛠️ Klassendiagramm
+[![Klassendiagramm](screenshots/Klassendiagramm.drawio.png)](screenshots/Klassendiagramm.drawio.png)
+
+
+--- 
+
 ## 📄 Lizenz
 
 Dieses Projekt wurde im Rahmen eines Kurses erstellt und dient Lernzwecken. Keine kommerzielle Nutzung.
@@ -118,5 +131,5 @@ Dieses Projekt wurde im Rahmen eines Kurses erstellt und dient Lernzwecken. Kein
 
 ## 👤 Autor
 
-- **Name:** ...
+- **Name:** Görkem Istemi
 - **GitHub:** [SCREWYT](https://github.com/SCREWYT)
