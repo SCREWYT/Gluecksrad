@@ -116,7 +116,7 @@ Das hier sind sowohl Ablaufdiagramm als auch ein Klassendiagramm
 [![Ablaufdiagramm](Final_Ablaufdiagramm_Glücksrad.png)](Final_Ablaufdiagramm_Glücksrad.png)
 
 ### 🛠️ Klassendiagramm
-[![Klassendiagramm](Klassendiagramm.drawio.png)](Klassendiagramm.drawio.png)
+[![Klassendiagramm](Klassendiagramm.png)](Klassendiagramm.png)
 
 
 --- 
