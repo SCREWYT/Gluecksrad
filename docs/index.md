@@ -1,13 +1,17 @@
-# "Glücksrad" App 📱
 
 ---
 title: Start
 nav_order: 1
 ---
+# "Glücksrad" App 📱
 
-# Meine erste App in Android Studio mit Java
+---
+
+## Hier ein Link zum GitHub Repository:
 
 👉 [GitHub-Repository ansehen](https://github.com/SCREWYT/Gluecksrad)
+
+---
 
 **Funktionen & Ziel der Glücksrad-App**
 

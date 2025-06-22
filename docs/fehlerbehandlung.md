@@ -3,7 +3,7 @@ title: Fehlerbehandlung
 nav_order: 6
 ---
 
-# ❗ Fehlerbehandlung
+# Fehlerbehandlung
 
 Diese Seite dokumentiert die wichtigsten Maßnahmen zur Fehlervermeidung und -behandlung innerhalb der 
 Glücksrad-App.
@@ -20,13 +20,12 @@ Glücksrad-App.
 
 `Toast.makeText(this, "Upgrade gekauft!", Toast.LENGTH_SHORT).show();`
 
-
 ---
 
 ## 🔐 Login & Registrierung
 
 - **Fehlende Eingabe:** Bei leerem Benutzernamen oder Passwort wird keine Anmeldung/Registrierung ausgeführt.
-- 
+
   `if (username.isEmpty() || password.isEmpty()) {
   Toast.makeText(this, "Bitte alle Felder ausfüllen", Toast.LENGTH_SHORT).show();
   return;
@@ -81,10 +80,6 @@ spinButton.setEnabled(true);
 Toast.makeText(this, "Nicht genügend Punkte", Toast.LENGTH_SHORT).show();
 }
 `
-
-- **Kaufüberprüfung:** Vor jedem Upgrade-Kauf erfolgt eine Validierung inklusive Berechnung des aktuellen Upgrade-Preises.
-- **Fehlerhafte Level-Werte:** Unerwartete Levelwerte werden ausgeschlossen – z. B. keine negativen Levels.
-
 ---
 
 ## 🌐 Netzwerk (HttpURLConnection)
