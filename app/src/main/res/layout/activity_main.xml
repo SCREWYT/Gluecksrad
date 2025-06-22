@@ -100,11 +100,11 @@
      Spieler als Orientierung -->
     <ImageView
         android:id="@+id/imageViewArrow"
-        android:layout_width="40dp"
-        android:layout_height="40dp"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
         android:layout_below="@id/wheelContainer"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="-20dp"
+        android:layout_marginTop="-45dp"
         android:src="@drawable/ic_arrow_down"
         android:contentDescription="Pfeil zeigt Treffer" />
 

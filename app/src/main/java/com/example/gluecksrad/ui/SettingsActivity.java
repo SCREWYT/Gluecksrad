@@ -66,6 +66,7 @@ public class SettingsActivity extends AppCompatActivity {
         });
     }
 
+    //  Mit KI innerhalb von einer Klasse die ich immer nutze ich d ann immemr rwennn
     // NetworkTestTask = Interne Klasse, die zu URL verbindet, Text dort liest und ausgibt
     private class NetworkTestTask extends AsyncTask<String, Void, String> {
 
