@@ -2,8 +2,10 @@ title: Glücksrad
 
 # Design & Layout
 remote_theme: just-the-docs/just-the-docs
+
+# Mermaid-Unterstützung (optional für Diagramme)
 mermaid:
-  version: "10.9.0"  # Mermaid-Diagramme – Version von jsDelivr CDN
+  version: "10.9.0"
 
 # Benutzerdefinierte Callouts (Hinweisboxen)
 callouts:
@@ -20,24 +22,27 @@ callouts:
     title: 💾 Download
     color: grey-dk
 
-# Navigationsergänzungen (Seitenleiste)
+# Navigation: exakt deine vorhandenen Seiten
 just_the_docs:
   nav:
-    - title: Startseite
+    - title: Start
       url: index.md
       nav_order: 1
-    - title: Anleitung
-      url: anleitung.md
+    - title: Design Entscheidungen
+      url: design_entscheidungen.md
       nav_order: 2
-    - title: Architektur
+    - title: Architektur & Aufbau
       url: architektur.md
       nav_order: 3
-    - title: Loginscreen
-      url: login.md
+    - title: UML-Diagramme
+      url: diagramme.md
       nav_order: 4
-    - title: Funktionalitäten
-      url: funktionalitaeten.md
+    - title: Nutzeraktionen
+      url: nutzeraktionen.md
       nav_order: 5
-    - title: Präsentation
-      url: #  # Link später ergänzen
-      nav_order: 50
+    - title: Fehlerbehandlung
+      url: fehlerbehandlung.md
+      nav_order: 6
+    - title: Codeauszüge
+      url: codeauszuege.md
+      nav_order: 7

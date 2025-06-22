@@ -49,14 +49,14 @@ public class ScoreDao {
             return level;
         }
         cursor.close();
-        return 0;                                    // Wenn kein Upgrade-Level existiert, ist der Standardwert 0
+        return 0;                    // Wenn kein Upgrade-Level existiert, ist der Standardwert 0
     }
 
     // Upgrade-Level setzen (ersetzen)
     public void setUpgradeLevel(String username, String upgrade, int level) {
         ContentValues values = new ContentValues();
         values.put("username", username);              // Spalte „username“
-        values.put("upgrade", upgrade);               // Spalte „username“
+        values.put("upgrade", upgrade);               // Spalte „upgrade“
         values.put("level", level);                  // Spalte „level“
 
         // Fügt Datensatz ein oder ersetzt, wenn derselbe Primärschlüssel (username + upgrade) schon existiert
