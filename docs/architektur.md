@@ -98,7 +98,7 @@ automatisch Punkte erhält – ohne Interaktion (z. B. alle 10 Sekunden +1 Punkt
 
 **Problem:**  
 Dieses Feature war technisch anspruchsvoll in Kombination mit der Datenbank. 
-Jedoch führte dieses Feature zu Speicherproblemen, da immer wieder unterschiedliche Score Stände geladen
+Es führte zu Speicherproblemen, da immer wieder unterschiedliche Score-Stände geladen
 wurden und es damit zu extrem inkonsistentem Verhalten kam. (z. B. lag der Score bei 308 und nach Kauf eines
 Upgrades plötzlich bei einem früheren Punktestand von 502)
 
@@ -111,7 +111,7 @@ Statt passivem Einkommen wurde ein Upgrade umgesetzt, das alle Felder beeinfluss
 - **Positive Felder werden positiver**
 - **Negative Felder werden negativer**
 
-Das ist technisch einfach zu speichern (durch Upgrade-Level) und verändert die Risikostruktur des Spiels:  
+Das ist technisch einfacher zu speichern (durch Upgrade-Level) und verändert die Risikostruktur des Spiels:  
 Je höher das Upgrade-Level, desto mehr kann man gewinnen – aber auch verlieren. Diese Designentscheidung 
 sorgt für Spannung und einen strategischen Spielverlauf.
 
@@ -129,7 +129,7 @@ Die App ist modular aufgebaut und kann zukünftig leicht erweitert werden:
 
 ---
 
-> Diese Designentscheidungen und Vereinfachungen wurden bewusst gewählt, um eine stabile, verständliche 
+> Diese Designentscheidungen wurden bewusst gewählt, um eine stabile, verständliche 
 > und bewertbare App im Rahmen des Projekts umzusetzen. Auch lies die Zeit es nicht zu, noch weitere Dinge zu
 > implementieren. Ich bin trotz allem zufrieden mit der App.
 

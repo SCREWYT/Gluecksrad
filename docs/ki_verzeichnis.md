@@ -3,7 +3,7 @@ title: KI-Verzeichnis & Quellen
 nav_order: 6
 ---
 
-## 🤖 KI-Verzeichnis
+## KI-Verzeichnis
 
 ## 1. Netzwerkanfrage ( Unter Settings_Activity.java )
 
