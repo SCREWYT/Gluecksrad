@@ -3,11 +3,8 @@
 title: Start
 nav_order: 1
 ---
-# "Glücksrad" App 📱
 
----
-
-## Hier ein Link zum GitHub Repository:
+# Hier ein Link zum GitHub Repository:
 
 👉 [GitHub-Repository ansehen](https://github.com/SCREWYT/Gluecksrad)
 

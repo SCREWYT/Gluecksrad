@@ -66,6 +66,11 @@ public class SettingsActivity extends AppCompatActivity {
         });
     }
 
+
+    // Der untere Teil wurde mithilfe von KI erzugt, da ich es nicht alleine hinbekommen habe:
+    // Hier der Link zu dem ChatGPT Chat: https://chatgpt.com/share/6857f7c9-6ab0-800b-8b72-d4de8f46f1ed
+
+
     // NetworkTestTask = Interne Klasse, die zu URL verbindet, Text dort liest und ausgibt
     private class NetworkTestTask extends AsyncTask<String, Void, String> {
 

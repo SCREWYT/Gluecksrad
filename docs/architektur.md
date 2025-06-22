@@ -1,6 +1,6 @@
 ---
 title: Architektur & Aufbau
-nav_order: 3
+nav_order: 2
 ---
 
 # Architektur & Projektstruktur
@@ -15,9 +15,9 @@ Die Anwendung ist in verschiedene Module und Klassen aufgeteilt:
 
 | Paket/Ordner | Inhalt                                                                                                         |
 |--------------|----------------------------------------------------------------------------------------------------------------|
-| `database`   |` DBHelper`,` ScoreDao`, `UserDao`
+| `database`   | `DBHelper`, `ScoreDao`, `UserDao`                                                                              |
 | `model`      | Datenmodelle wie `User`                                                                                        |
-| `ui`         | GUI-Komponenten wie `LoginActivity`, `MainActivity`, `RegisterAcivity`, `SettingsActivity`, `UpgradesActivity` ||                                                                |
+| `ui`         | GUI-Komponenten wie `LoginActivity`, `MainActivity`, `RegisterActivity`, `SettingsActivity`, `UpgradesActivity` |
 
 ---
 
@@ -89,14 +89,51 @@ Die App enthält folgende grafische Oberflächen (Screens):
 
 ---
 
-## ✅ Fazit
+## 💡 Design Entscheidungen & generelle Überlegungen
 
-Die Architektur ist modular, klar getrennt und erfüllt die Anforderungen:
+### ❌ Ursprüngliche Idee: Passives Einkommen
 
-- GUI
-- SQLite-Datenbank mit DAO-Muster
-- Netzwerkfunktion
-- Saubere Fehlerbehandlung
-- Trennung von Daten, Logik und Darstellung
+Zu Beginn des Projekts war ein passives Einkommen geplant, bei dem der Nutzer alle X Sekunden 
+automatisch Punkte erhält – ohne Interaktion (z. B. alle 10 Sekunden +1 Punkt.)
+
+**Problem:**  
+Dieses Feature war technisch anspruchsvoll in Kombination mit der Datenbank. 
+Jedoch führte dieses Feature zu Speicherproblemen, da immer wieder unterschiedliche Score Stände geladen
+wurden und es damit zu extrem inkonsistentem Verhalten kam. (z. B. lag der Score bei 308 und nach Kauf eines
+Upgrades plötzlich bei einem früheren Punktestand von 502)
+
+---
+
+### ✅ Entscheidung: Upgrade auf Feldwerte als Alternative
+
+Statt passivem Einkommen wurde ein Upgrade umgesetzt, das alle Felder beeinflusst:
+
+- **Positive Felder werden positiver**
+- **Negative Felder werden negativer**
+
+Das ist technisch einfach zu speichern (durch Upgrade-Level) und verändert die Risikostruktur des Spiels:  
+Je höher das Upgrade-Level, desto mehr kann man gewinnen – aber auch verlieren. Diese Designentscheidung 
+sorgt für Spannung und einen strategischen Spielverlauf.
+
+---
+
+### 🔭 Ausblick – mögliche Erweiterungen
+
+Die App ist modular aufgebaut und kann zukünftig leicht erweitert werden:
+
+- 🔐 **Online-Synchronisation**: Login mit Server und Speichern der Scores in der Cloud.
+- 🏆 **Highscore-Liste**: Anzeige der besten Spieler (lokal oder online).
+- 🎨 **Weitere Felder & Animationen**: Mehr als 8 Felder, verschiedene Designs, Soundeffekte.
+- 🛍️ **Mehr Upgrades**: Beispielsweise ein „Glücks-Upgrade“, das schlechte Felder mit geringer Wahrscheinlichkeit ignoriert.
+- 📊 **Statistiken**: Anzahl Drehungen, bestes Ergebnis, Upgrade-Historie etc.
+
+---
+
+> Diese Designentscheidungen und Vereinfachungen wurden bewusst gewählt, um eine stabile, verständliche 
+> und bewertbare App im Rahmen des Projekts umzusetzen. Auch lies die Zeit es nicht zu, noch weitere Dinge zu
+> implementieren. Ich bin trotz allem zufrieden mit der App.
+
+
+
 
 

@@ -124,6 +124,8 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+
+    // Habe ich ohne KI nicht hinbekommen: https://chatgpt.com/share/6857fd20-43cc-800b-800a-a34dac4b47b6
     // Platziert alle Textfelder gleichmäßig im Kreis
     private void positionNumbersOnCircle() {
         int radius = wheelContainer.getWidth() / 2 - 150;
@@ -156,7 +158,7 @@ public class MainActivity extends AppCompatActivity {
                   // randomSector * degreesPerSector = bringt das richtige Feld oben hin
                  // degreesPerSector / 2f = Zentriert das Feld, was gewählt wird, genau beim Zeiger
 
-        // ObjecaAnimator = Android interne Klasse, die Animationen abspielen kann. Hier dreht es den WheelContainer
+        // ObjectAnimator = Android interne Klasse, die Animationen abspielen kann. Hier dreht es den WheelContainer
         ObjectAnimator animator = ObjectAnimator.ofFloat(wheelContainer, "rotation", currentRotation, targetRotation);
 
         // Animation dauert 3 Sekunden
@@ -212,6 +214,7 @@ public class MainActivity extends AppCompatActivity {
         animator.start();
     }
 
+    // Mit KI nachgeholfen: https://chatgpt.com/share/6857fc4a-f364-800b-b0f8-504c819daff1
     // Berechnet, welches Feld bei einem bestimmten Winkel oben liegt
     private int getSectorUnderPointer(float wheelRotation, int sectorCount) {
         final float pointerAngle = 180f; // Oben in der Mitte
