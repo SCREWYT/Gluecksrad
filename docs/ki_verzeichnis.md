@@ -80,6 +80,6 @@ Kommentiere die Schritte im Code
 
 Quelle zum Chat: https://chatgpt.com/share/6857fd20-43cc-800b-800a-a34dac4b47b6
 
-
+---
 
 
