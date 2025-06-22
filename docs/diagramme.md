@@ -13,11 +13,11 @@ Diese Seite enthält ein Ablaufdiagramm und ein Klassendiagramm zum Projekt.
 
 Das Klassendiagramm zeigt die wichtigsten Klassen und deren Beziehungen. Es bildet die Struktur des Projekts ab, einschließlich Modelle, DAOs und Aktivitäten.
 
-![Ablaufdiagramm](Final_Ablaufdiagramm_Glücksrad.png)
+![Ablaufdiagramm](assets/Final_Ablaufdiagramm_Glücksrad.png)
 
 ---
 
 ## 🔁 Klassendiagramm
 
-![Klassendiagramm](klassendiagramm.png)
+![Klassendiagramm](assets/klassendiagramm.png)
 ---
