@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    // Habe ich ohne KI nicht hinbekommen: https://chatgpt.com/share/6857fd20-43cc-800b-800a-a34dac4b47b6
+    // Ohne KI nicht ganz hinbekommen: https://chatgpt.com/share/6857fd20-43cc-800b-800a-a34dac4b47b6
     // Platziert alle Textfelder gleichmäßig im Kreis
     private void positionNumbersOnCircle() {
         int radius = wheelContainer.getWidth() / 2 - 150;
