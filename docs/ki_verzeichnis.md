@@ -20,7 +20,7 @@ Erstelle mir eine Java-Klasse SettingsActivity für eine Android-App mit folgend
 - Bei einem Fehler (z. B. keine Verbindung) soll der Fehlertext ebenfalls angezeigt werden.
 - Verwende sinnvolle Kommentare zu jedem Schritt im Code.
 
-Quelle zum Chat: https://chatgpt.com/share/6857f7c9-6ab0-800b-8b72-d4de8f46f1ed
+[Quelle zum Chat](https://chatgpt.com/share/6857f7c9-6ab0-800b-8b72-d4de8f46f1ed)
 
 ---
 
@@ -46,7 +46,7 @@ Verwende zur Berechnung auch den Modulo-Operator %, um den Winkel zu begrenzen
 
 Nutze float degreesPerSector = 360f / sectorCount; zur Aufteilung des Rads
 
-Quelle zum Chat: https://chatgpt.com/share/6857fc4a-f364-800b-b0f8-504c819daff1
+[Quelle zum Chat](https://chatgpt.com/share/6857fc4a-f364-800b-b0f8-504c819daff1)
 
 ---
 
@@ -78,7 +78,7 @@ Zeige die passende Zahl aus einem spinValues-Array mit setText(...) an
 
 Kommentiere die Schritte im Code
 
-Quelle zum Chat: https://chatgpt.com/share/6857fd20-43cc-800b-800a-a34dac4b47b6
+[Quelle zum Chat](https://chatgpt.com/share/6857fd20-43cc-800b-800a-a34dac4b47b6)
 
 ---
 

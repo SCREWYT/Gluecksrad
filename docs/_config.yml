@@ -31,7 +31,7 @@ just_the_docs:
     - title: Architektur & Aufbau
       url: architektur.md
       nav_order: 2
-    - title: UML-Diagramme
+    - title: Diagramme
       url: diagramme.md
       nav_order: 3
     - title: Fehlerbehandlung
