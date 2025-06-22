@@ -110,8 +110,6 @@ Das sind einige Screenshots meiner App.
 
 ---
 
-Das hier sind sowohl Ablaufdiagramm als auch ein Klassendiagramm
-
 ### 🔐 Ablaufdiagramm
 [![Ablaufdiagramm](Final_Ablaufdiagramm_Glücksrad.png)](Final_Ablaufdiagramm_Glücksrad.png)
 

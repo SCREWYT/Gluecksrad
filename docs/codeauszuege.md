@@ -1,6 +1,6 @@
 ---
 title: Codeauszüge
-nav_order: 8
+nav_order: 7
 ---
 
 # Beispiel 1: Upgrade kaufen

@@ -11,7 +11,7 @@ Diese Seite enthält ein Ablaufdiagramm und ein Klassendiagramm zum Projekt.
 
 ## 🧱 Ablaufdiagramm
 
-Das Klassendiagramm zeigt die wichtigsten Klassen und deren Beziehungen. Es bildet die Struktur des Projekts ab, einschließlich Modelle, DAOs und Aktivitäten.
+Das Ablaufdiagramm zeigt die wichtigsten Screens und primär die Logik.
 
 ![Ablaufdiagramm](assets/Final_Ablaufdiagramm_Glücksrad.png)
 
@@ -19,5 +19,7 @@ Das Klassendiagramm zeigt die wichtigsten Klassen und deren Beziehungen. Es bild
 
 ## 🔁 Klassendiagramm
 
-![Klassendiagramm](assets/klassendiagramm.png)
+Das Klassendiagramm veranschaulicht die Struktur der wichtigsten Klassen der Anwendung.
+
+![Klassendiagramm](assets/Klassendiagramm.png)
 ---
